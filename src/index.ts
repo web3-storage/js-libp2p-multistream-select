@@ -1,4 +1,4 @@
-import { select } from './select.js'
+import { lazySelect, select } from './select.js'
 import { handle } from './handle.js'
 import { ls } from './ls.js'
 import { PROTOCOL_ID } from './constants.js'
@@ -38,7 +38,11 @@ class MultistreamSelect {
 }
 
 export class Dialer extends MultistreamSelect {
-  async select (protocols: string | string[], options?: AbortOptions): Promise<ProtocolStream> {
+  async select (protocols: string | string[], options?: AbortOptions & { lazy: boolean }): Promise<ProtocolStream> {
+    protocols = Array.isArray(protocols) ? protocols : [protocols]
+    if (protocols.length === 1 && !this.shaken && options?.lazy === true) {
+      return lazySelect(this.stream, protocols[0])
+    }
     return await select(this.stream, protocols, this.shaken ? undefined : PROTOCOL_ID, options)
   }
 

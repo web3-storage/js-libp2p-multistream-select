@@ -1,15 +1,15 @@
 {
-  "name": "@libp2p/multistream-select",
-  "version": "1.0.6",
+  "name": "@web3-storage/multistream-select",
+  "version": "0.0.0",
   "description": "JavaScript implementation of multistream-select",
   "license": "Apache-2.0 OR MIT",
-  "homepage": "https://github.com/libp2p/js-libp2p-multistream-select#readme",
+  "homepage": "https://github.com/web3-storage/js-libp2p-multistream-select#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/libp2p/js-libp2p-multistream-select.git"
+    "url": "git+https://github.com/web3-storage/js-libp2p-multistream-select.git"
   },
   "bugs": {
-    "url": "https://github.com/libp2p/js-libp2p-multistream-select/issues"
+    "url": "https://github.com/web3-storage/js-libp2p-multistream-select/issues"
   },
   "keywords": [
     "ipfs",
@@ -144,6 +144,7 @@
     "it-first": "^1.0.6",
     "it-handshake": "^3.0.1",
     "it-length-prefixed": "^7.0.1",
+    "it-merge": "^1.0.4",
     "it-pipe": "^2.0.3",
     "it-pushable": "^2.0.1",
     "it-reader": "^5.0.0",
@@ -153,6 +154,7 @@
     "uint8arrays": "^3.0.0"
   },
   "devDependencies": {
+    "@types/varint": "^6.0.0",
     "aegir": "^37.0.7",
     "iso-random-stream": "^2.0.2",
     "it-all": "^1.0.6",

@@ -1,8 +1,6 @@
 # js-multistream-select <!-- omit in toc -->
 
-[![test & maybe release](https://github.com/libp2p/js-libp2p-multistream-select/actions/workflows/js-test-and-release.yml/badge.svg)](https://github.com/libp2p/js-libp2p-multistream-select/actions/workflows/js-test-and-release.yml)
-
-> JavaScript implementation of [multistream-select](https://github.com/multiformats/multistream-select)
+JavaScript implementation of [multistream-select](https://github.com/multiformats/multistream-select) with support for lazy select.
 
 ## Table of Contents <!-- omit in toc -->
 
@@ -180,7 +178,7 @@ Negotiate a protocol to use from a list of protocols.
 #### Parameters
 
 * `protocols` (`String[]`/`String`) - A list of protocols (or single protocol) to negotiate with. Protocols are attempted in order until a match is made.
-* `options` (`{ signal: AbortSignal }`) - an options object containing an AbortSignal
+* `options` (`{ signal: AbortSignal, lazy: boolean }`) - an options object containing an AbortSignal and `lazy` flag. If `lazy` is set to try, and only 1 protocol is available for selection then the dialer will optimistically assume protocol selection and start writing data without waiting for the protocol selection response.
 
 #### Returns
 
