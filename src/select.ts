@@ -87,6 +87,7 @@ export function lazySelect (stream: Duplex<Uint8Array>, protocol: string): Proto
           if (first) {
             first = false
             negotiated = true
+            negotiateTrigger.end()
             const p1 = uint8ArrayFromString(PROTOCOL_ID)
             const p2 = uint8ArrayFromString(protocol)
             const list = new Uint8ArrayList(multistream.encode(p1), multistream.encode(p2))
